@@ -1,0 +1,74 @@
+<div class="container">
+
+      <ddiv class="row">
+
+        <div class="col-sm-12">
+        <h2>Gestion de Posts</h2>
+        <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-striped table-bordered table-responsive">
+            <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Texto</th>
+                <th>Autor</th>
+                <th>Fecha</th>
+                <th>Categoria</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in items">
+                <td>{{ item.titulo }}</td>
+                <td>{{ item.body | limitTo:20 }}</td>
+                <td>{{ item.autor_nombre }}</td>
+                <td>{{ item.fecha }}</td>
+                <td>{{ item.categoria_nombre }}</td>
+                <td>{{ item.imagen | limitTo:20 }}</td>
+                <td>
+                    <center>
+                    <a href="" ng-click="modifyitem(item)" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="" ng-click="removeitem(item.id, item.titulo)" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                    </center>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        <hr>
+        <div class="col-sm-12">
+        <h2>Editar/ Añadir Post: <span class="label label-info">{{item2Add.titulo}}</span></h2>
+         <form role="form" ng-submit="additem()">
+            <b>Titulo</b><br>
+            <input class="form-control" type="text" name="titulo" ng-model="item2Add.titulo" ng-required="true" />
+            <b>Fecha</b><br>
+            <p class="input-group">
+              <input type="text" class="form-control" datepicker-popup="{{format}}" datepicker-options="dateOptions" ng-model="item2Add.fecha" is-open="opened" ng-required="true" close-text="Cerrar" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+            <b>Body</b><br clear="all"><br clear="all">
+            <text name="body" text-angular ng-model="item2Add.body" ng-required="true"></text>
+            <b>Autor</b><br>
+            <select class="form-control" name="categoria" ng-model="item2Add.autor" ng-required="true">
+              <option  value="">-- Escoge autor --</option>
+              <option ng-repeat="autor in autores" value="{{autor.id}}">{{autor.nombre}}</option>
+            </select>
+            <b>Categoria</b><br>
+            <select class="form-control" name="categoria" ng-model="item2Add.categoria" ng-required="true">
+              <option  value="">-- Escoge categoria --</option>
+              <option ng-repeat="cat in cats" value="{{cat.id}}">{{cat.nombre}}</option>
+            </select>
+            <b>Imagen</b><br>
+            <input type="text" class="form-control" name="imagen" ng-model="item2Add.imagen" />
+            <br>
+            <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>Enviar</button>
+            <a href="" ng-click="ClearItem()" class="btn btn-warning"><i class="glyphicon glyphicon-refresh"></i>Limpiar</a>
+        </form>
+        <br>
+        <pre>{{item2Add | json}}</pre>
+        </div><!-- /.blog-main -->
+
+      </div><!-- /.row -->
+
+</div>

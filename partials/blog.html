@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+      <ol class="breadcrumb">
+        <li><a href="#">Blog</a></li>
+      </ol>
+      <div ng-include="'partials/blog_post.html'"></div>
+      <br clear="all">
+      <hr>
+      <center>
+      <pagination ng-model="currentPage" items-per-page="maxSize" total-items="totalItems" max-size="5" boundary-links="true" ng-change="pageChange()" previous-text="&lsaquo;&lsaquo;&lsaquo;" next-text="&rsaquo;&rsaquo;&rsaquo;"></pagination>
+      </center>
+
+    </div><!-- /.blog-main -->
+
+    <div ng-include="'partials/sidebar.html'"></div>
+
+  </div><!-- /.row -->
+
+</div>
+
+
+

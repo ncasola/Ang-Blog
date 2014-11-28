@@ -1,0 +1,10 @@
+      <div ng-show="!items.length" class="alert alert-info" role="alert">No hay Posts por ahora :/</div>
+      <div class="blog-post" ng-repeat="item in items" class="postrans">
+       <img ng-src="{{item.imagen}}" fallback-src class="img-thumbnail blog-img">
+        <h2 class="blog-post-title"><a href="" ng-click="open(item)">{{item.titulo}}</a></h2>
+        <p class="blog-post-meta"><showmeta ide="item.autor" end="autores" field="autor"></showmeta> el {{item.fecha | asDate | date:'EEEE, MMM d, y'}} en <showmeta ide="item.categoria" end="categorias" field="categoria"></showmeta></p>
+
+        <p>{{item.body | htmlToPlaintext | limitTo:150 | readmore}}</p>
+        <br>
+        <a class="btn btn-primary" href="" ng-click="open(item)" role="button">Leer más »</a>
+      </div><!-- /.blog-post -->

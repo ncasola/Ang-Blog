@@ -1,0 +1,43 @@
+<div class="container">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{configBlog.titulo[0].val}}</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-7">
+          <ul class="nav navbar-nav">
+            <li detect-active-tab><a href="#/">Home</a></li>
+            <li ng-repeat="navitem in nav" detect-active-tab><a ng-href="{{navitem.url}}">{{navitem.label}}</a></li>
+            <li ng-hide="$root.globals.currentUser.username" detect-active-tab><a href="#/login">Login</a></li>
+            <li ng-show="$root.globals.currentUser.username" class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hola {{$root.globals.currentUser.username}}<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#/admin">Panel Admin</a></li>
+                <li><a href="#/admin/meta/users">Editar Usuarios</a></li>
+                <li><a ng-click="logout()" href="">Cerrar Sesión</a></li>
+              </ul>
+            </li>
+          </ul>
+          <p class="navbar-text navbar-right">Ang-Blog built by <a class="navbar-link" href="https://twitter.com/ncasolajimenez">@ncasolajimenez</a></p>
+        </div><!-- /.navbar-collapse -->
+      </div>
+</nav>
+
+<br clear="all">
+<br clear="all">
+<br clear="all">
+
+
+ <div class="blog-header">
+ <mc-messages class="alert_box"></mc-messages>
+        <p class="lead blog-description">{{configBlog.descrip[0].val}}</p>
+ </div>
+
+</div>

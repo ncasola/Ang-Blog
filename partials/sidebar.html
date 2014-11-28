@@ -1,0 +1,27 @@
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset" ng-repeat="widget in widgets">
+            <h4>{{widget.nombre}}</h4>
+              <html-render html="{{widget.html}}"></html-render>
+          </div>
+          <div class="sidebar-module">
+            <h4>Buscador <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i></h4>
+              <input type="text" ng-model="searchText" placeholder="Buscar por título" typeahead="item as item.titulo for item in getposts($viewValue)"  typeahead-on-select="onSelect($item, $model, $label)" typeahead-loading="loadingLocations" class="form-control" typeahead-wait-ms="300" typeahead-min-length="3">
+          </div>
+          <div class="sidebar-module">
+            <h4>Categorias</h4>
+            <ol class="list-unstyled">
+              <li ng-repeat="categoria in categorias">
+                  <a ng-href="#/archivo/categoria/{{categoria.id}}/{{categoria.nombre}}">{{categoria.nombre}}</a>
+              </li>
+            </ol>
+            </showmeta>
+          </div>
+          <div class="sidebar-module">
+            <h4>Autores</h4>
+            <ol class="list-unstyled">
+              <li ng-repeat="autor in autores">
+                  <a ng-href="#/archivo/autor/{{autor.id}}/{{autor.nombre}}">{{autor.nombre}}</a>
+              </li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->

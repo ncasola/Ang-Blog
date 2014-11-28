@@ -1,0 +1,17 @@
+<div class="container">
+
+      <div class="row">
+
+        <div class="col-sm-12">
+        <h2>Opciones de Admin</h2>
+            <div class="list-group">
+              <a ng-repeat="item in items" ng-href="{{item.url}}" class="list-group-item">
+                <h4 class="list-group-item-heading">Gestion de {{item.name}}</h4>
+                <p class="list-group-item-text">Para añadir, eliminar y actualizar {{item.name}} haga click aquí</p>
+              </a>
+            </div>
+        </div>
+
+      </div><!-- /.row -->
+
+</div>

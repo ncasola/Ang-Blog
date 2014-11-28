@@ -1,0 +1,12 @@
+        <div class="modal-header">
+          <h3 class="modal-title">{{item.titulo}}</h3>
+          <br>
+          <showmeta ide="item.autor" end="autores" field="autor"></showmeta> el {{item.fecha | asDate | date:'EEEE, MMM d, y'}} en <showmeta ide="item.categoria" end="categorias" field="categoria"></showmeta>
+        </div>
+        <div class="modal-body">
+        <img ng-src="{{item.imagen}}" class="img-thumbnail blog-img">
+          <html-render html="{{item.body}}"></html-render>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" ng-click="ok()">Salir</button>
+        </div>
